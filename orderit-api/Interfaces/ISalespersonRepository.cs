@@ -10,6 +10,8 @@ namespace orderit_api.Interfaces
         bool UpdateSalesperson(Salesperson salesperson);
         bool DeleteSalesperson(Salesperson salesperson);
         bool SalespersonExist(int id);
+        bool UpdateUserId(Salesperson salesperson, string userId);
+        Salesperson GetSalespersonByUserId(string userId);
         bool Save();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.Configuration.Annotations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using orderit_api.Dto;
 using orderit_api.Interfaces;
@@ -10,6 +11,7 @@ namespace orderit_api.Controller
 {
     [Route("api/orders/")]
     [ApiController]
+    [Authorize]
     public class OrderDetailController : ControllerBase
     {
         private readonly IOrderDetailRepository _orderDetailRepository;

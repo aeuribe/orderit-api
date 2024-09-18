@@ -13,6 +13,7 @@ namespace orderit_api.Repository
         }
         public bool CreateSalesperson(Salesperson salesperson)
         {
+         
             _context.Add(salesperson);
             return Save();
         }
@@ -28,6 +29,12 @@ namespace orderit_api.Repository
             return _context.Salespersons.Where(s => s.SalespersonId == id).FirstOrDefault();
         }
 
+        public Salesperson GetSalespersonByUserId(string userId)
+        {
+            return _context.Salespersons
+                .Where(s => s.UserId == userId)
+                .FirstOrDefault();
+        }
 
         public ICollection<Salesperson> GetSalespersons()
         {
@@ -44,14 +51,15 @@ namespace orderit_api.Repository
             var saved = _context.SaveChanges();
             return saved > 0 ? true : false;
         }
-
-        public bool SellerExist(int id)
-        {
-            return _context.Salespersons.Any(S => S.SalespersonId == id);
-        }
-
         public bool UpdateSalesperson(Salesperson salesperson)
         {
+            _context.Update(salesperson);
+            return Save();
+        }
+
+        public bool UpdateUserId(Salesperson salesperson, string id)
+        {
+            salesperson.UserId = id;
             _context.Update(salesperson);
             return Save();
         }

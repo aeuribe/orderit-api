@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using orderit_api.Dto;
 using orderit_api.Interfaces;
@@ -9,6 +10,7 @@ namespace orderit_api.Controller
 {
     [Route("api/salespersons")]
     [ApiController]
+//    [Authorize]
     public class SalespersonController : ControllerBase
     {
         private readonly ISalespersonRepository _salespersonRepository;

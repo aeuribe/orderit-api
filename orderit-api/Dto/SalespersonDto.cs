@@ -3,7 +3,7 @@
     public class SalespersonDto
     {
         public int SalespersonId { get; set; }
-        public int UserId { get; set; }
+        public string? UserId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string LastName { get; set; }

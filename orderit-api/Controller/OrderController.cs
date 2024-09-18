@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using orderit_api.Dto;
@@ -10,6 +11,7 @@ namespace orderit_api.Controller
 {
     [Route("api/orders")]
     [ApiController]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
@@ -26,7 +28,7 @@ namespace orderit_api.Controller
             _mapper = mapper;
         }
 
-        [HttpGet]/**/
+        [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Order>))]
         public IActionResult GetOrders()
         {
