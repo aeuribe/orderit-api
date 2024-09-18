@@ -10,7 +10,7 @@ namespace orderit_api.Controller
 {
     [Route("api/salespersons")]
     [ApiController]
-//    [Authorize]
+    [Authorize]
     public class SalespersonController : ControllerBase
     {
         private readonly ISalespersonRepository _salespersonRepository;
